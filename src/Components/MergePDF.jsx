@@ -7,7 +7,7 @@ import { toast, Toaster } from 'react-hot-toast';
 import { useDropzone } from 'react-dropzone';
 import Navbar from './Navbar';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+// const BASE_URL = process.env.REACT_APP_BASE_URL;
 const MergePDF = () => {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -100,7 +100,7 @@ const MergePDF = () => {
     const loadingToast = toast.loading("Merging PDFs... Please wait...", { id: "loading" });
   
     try {
-      const response = await axios.post(`${BASE_URL}/pdf/merge`, formData, {
+      const response = await axios.post('https://pdfify-udm9.onrender.com/api/pdf/merge', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
   
