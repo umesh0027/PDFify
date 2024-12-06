@@ -6,13 +6,13 @@ import axios from 'axios';
 import { toast,Toaster } from 'react-hot-toast';
 import Navbar from './Navbar';
 
-
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const ImageUpload = () => {
   const [images, setImages] = useState([]);
   const [pdfUrl, setPdfUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(false); // Loading state
-  // const BASE_URL = process.env.REACT_APP_BASE_URL;
+ 
   // Handle drop event
   const onDrop = (acceptedFiles) => {
     setImages(acceptedFiles);
@@ -29,7 +29,7 @@ const ImageUpload = () => {
    const loadingToast = toast.loading("Generating PDF... Please wait...", { id: "loading" }); // Toast message with loading state
 
     try {
-      const response = await axios.post('https://pdfify-udm9.onrender.com/api/pdf/create', formData, {
+      const response = await axios.post(`${BASE_URL}/pdf/create`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
         
       });
