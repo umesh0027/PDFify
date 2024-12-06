@@ -7,9 +7,7 @@
 // dotenv.config();
 // // Cloudinary configuration
 // cloudinary.config({
-//     // cloud_name: 'dvguluors',
-//     // api_key: '559828423444266',
-//     // api_secret: '_LeaAVgAPrWJIqWEXsEqUmvCoUg',
+
 
 //     cloud_name: process.env.CLOUD_NAME,
 //     api_key: process.env.API_KEY,
