@@ -8,11 +8,13 @@ const dotenv = require("dotenv");
 const app = express();
 
 
+const PORT = process.env.PORT || 5000;
+
 dotenv.config();
 
 // Middlewares
 app.use(cors({
-  origin: "*", // Allow the frontend to make requests
+  origin: "https://pdfgenerator-tau.vercel.app", // Allow the frontend to make requests
 
 }));
 app.use(bodyParser.json());
@@ -32,7 +34,11 @@ app.get("/", (req, res) => {
 
 
 // Start the server
-const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on ${PORT} PORT`);
 });
+
+// const PORT = 5000;
+// app.listen(PORT, () => {
+//   console.log(`Server running on ${PORT} PORT`);
+// });
